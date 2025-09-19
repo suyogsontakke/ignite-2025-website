@@ -29,24 +29,45 @@ export default async function handler(req, res) {
     },
   });
 
-  // Set up the email's content using HTML
+  // Define the neon colors
+  const neonPink = '#ff00c1';
+  const neonCyan = '#00f6ff';
+  const bgDarkJungle = '#0a0f1f';
+  const textBright = '#ffffff';
+
+  // Set up the email's content using HTML with theme integration
   const mailOptions = {
-    from: `"IGNITE 2025" <${process.env.EMAIL_USER}>`,
+    from: `"IGNITE 2025: Urban Jungle Rave" <${process.env.EMAIL_USER}>`,
     to: email, // The recipient's email from the form
-    subject: '✅ Your Ticket for IGNITE 2025 is Confirmed!',
+    subject: `✅ Your IGNITE 2025 Expedition Pass is Confirmed!`,
     html: `
-      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-        <h2 style="color: #EF4444;">Hey ${name}, your spot is confirmed!</h2>
-        <p>Thank you for registering for <b>IGNITE 2025</b>. We're thrilled to have you join us for Nagpur's biggest freshers' party!</p>
-        <hr>
-        <p>Your unique Ticket ID is: <b style="font-size: 18px; color: #EF4444;">${ticketId}</b></p>
-        <p>Please keep this email safe. You can also download your full ticket and receipt from the confirmation screen on our website.</p>
+      <div style="font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: ${textBright}; background-color: ${bgDarkJungle}; padding: 20px; border-radius: 10px; text-align: center;">
+        <h2 style="color: ${neonPink}; text-shadow: 0 0 8px ${neonPink}, 0 0 12px ${neonCyan}; font-size: 28px; margin-bottom: 15px;">
+          Hey ${name}, your spot in the Urban Jungle is CONFIRMED!
+        </h2>
+        <p style="font-size: 16px; margin-bottom: 20px;">
+          Welcome to the tribe! Your expedition pass for <b>IGNITE 2025</b> is secured. Get ready to unleash your wild side at Nagpur's most epic freshers' rave!
+        </p>
+        <div style="background-color: rgba(255, 255, 255, 0.05); padding: 15px; border-left: 4px solid ${neonCyan}; margin: 25px auto; max-width: 400px; border-radius: 8px;">
+          <p style="margin: 0; font-size: 14px; color: ${textBright};">Your unique Expedition Pass ID:</p>
+          <p style="font-size: 24px; color: ${neonCyan}; text-shadow: 0 0 5px ${neonCyan}; font-weight: bold; margin-top: 5px;">${ticketId}</p>
+        </div>
+        <p style="font-size: 14px; color: ${textBright}; margin-bottom: 20px;">
+          Please keep this email safe. You can also download your full ticket and receipt from the confirmation screen on our website.
+        </p>
+        <p style="font-size: 16px; margin-bottom: 25px;">
+          Prepare for an unforgettable night of electrifying beats, vibrant lights, and tropical rhythms!
+        </p>
+        <p style="font-size: 18px; color: ${neonPink}; text-shadow: 0 0 5px ${neonPink}; font-weight: bold; margin-bottom: 20px;">
+          See you in the jungle on October 25th!
+        </p>
         <br>
-        <p>Get ready for an unforgettable night of music, food, and fun!</p>
-        <p>See you on October 25th!</p>
-        <br>
-        <p>Warmly,</p>
-        <p><b>The IGNITE Team 🔥</b></p>
+        <p style="font-size: 14px; color: ${textBright}; margin-top: 30px;">
+          With wild enthusiasm,
+        </p>
+        <p style="font-size: 16px; font-weight: bold; color: ${neonPink}; text-shadow: 0 0 3px ${neonPink};">
+          The IGNITE 2025 Tribe 🔥
+        </p>
       </div>
     `,
   };
