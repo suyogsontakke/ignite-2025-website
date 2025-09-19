@@ -59,7 +59,7 @@ export default async function handler(req, res) {
           Prepare for an unforgettable night of electrifying beats, vibrant lights, and tropical rhythms!
         </p>
         <p style="font-size: 18px; color: ${neonPink}; text-shadow: 0 0 5px ${neonPink}; font-weight: bold; margin-bottom: 20px;">
-          See you in the jungle on October 25th!
+          Date: Coming Soon! Stay tuned for the full reveal!
         </p>
         <br>
         <p style="font-size: 14px; color: ${textBright}; margin-top: 30px;">
