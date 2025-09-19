@@ -20,7 +20,7 @@
     
     <style>
         :root {
-            /* --- NEW Green Theme Palette --- */
+            /* --- Green Theme Palette --- */
             --bg-dark: #0B120E;       /* Deep Forest Green */
             --bg-light: #111A15;      /* Lighter Forest Green */
             --primary-green: #16FF00; /* Vibrant Neon Green */
@@ -72,8 +72,10 @@
             background-color: #2d3748;
         }
         #modalQrCodeCanvas {
+            width: 100%;
             max-width: 100%;
             height: auto !important;
+            box-sizing: border-box;
             display: block;
             background-color: white;
             padding: 5px;
@@ -177,8 +179,8 @@
                           </p>
                           <div class="space-y-3 text-gray-200">
                               <div class="flex items-center">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                                  <span>October 25, 2025</span>
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                                  <span>Date: Coming Soon</span>
                               </div>
                               <div class="flex items-center">
                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -530,7 +532,7 @@
             <div class="bg-[var(--bg-dark)] p-4 rounded-lg max-h-[90vh] overflow-y-auto modal-scrollbar">
                 <div id="ticket-to-download" class="movie-ticket rounded-lg overflow-hidden">
                     <div class="ticket-main">
-                        <h2 class="text-4xl neon-text">IGNITE 2025</h2>
+                        <h2 class="text-4xl text-green-500">IGNITE 2025</h2>
                         <p class="text-lg tracking-widest text-gray-400">ADMIT ONE</p>
                         <div class="my-4"><p class="text-sm text-gray-400">ATTENDEE</p><p id="modalTicketName" class="text-3xl text-white"></p></div>
                         <div class="my-4"><p class="text-sm text-gray-400">TICKET TYPE</p><p id="modalTicketTypeDetail" class="text-xl text-white"></p></div>
@@ -669,7 +671,6 @@
             new QRious({ 
                 element: document.getElementById('modalQrCodeCanvas'), 
                 value: JSON.stringify({ id: data.docId, name: data.name, email: data.email }),
-                size: 120,
                 foreground: 'black',
                 background: 'white'
             });
@@ -809,7 +810,7 @@ Your purpose is to answer user questions in a fun, friendly, and authentic Nagpu
 
 * **Event Name:** IGNITE 2025 - The Freshers Party.
 * **Tagline:** "Igniting the vibe – Freshers Ignite 2025! The ultimate welcome to the new era."
-* **Date:** October 25, 2025.
+* **Date:** To Be Announced (Coming Soon).
 * **Venue:** To Be Announced (Coming Soon). If asked, state that the venue details will be released soon. Do not provide a link.
 * **Ticket Price:** The 'Freshers Pass' costs ₹800.
 * **Social Partner:** Our official social partner is Nagpur Party Update (@nagpurpartyupdate on Instagram), a popular page for events in the city.
