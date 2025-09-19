@@ -20,13 +20,12 @@
     
     <style>
         :root {
-            /* Updated Color Palette */
-            --bg-dark: #111827;      /* Dark Gray */
-            --bg-light: #1F2937;     /* Lighter Gray */
-            --primary-red: #EF4444;     /* Vibrant Red */
-            --secondary-orange: #F97316; /* Warm Orange */
-            --text-primary: #F9FAFB;     /* Light Gray for Text */
-            --text-secondary: #D1D5DB; /* Dimmer Gray for Text */
+            /* --- NEW Green Theme Palette --- */
+            --bg-dark: #0B120E;       /* Deep Forest Green */
+            --bg-light: #111A15;      /* Lighter Forest Green */
+            --primary-green: #16FF00; /* Vibrant Neon Green */
+            --text-primary: #f8fafc;  /* Bright White */
+            --text-secondary: #a0aec0;/* Muted Gray */
         }
         html {
             scroll-behavior: smooth;
@@ -44,19 +43,19 @@
         @keyframes slideInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .form-slide-in { animation: slideInUp 0.5s ease-out forwards; }
         
-        /* --- UPDATED TICKET STYLES --- */
+        /* --- TICKET STYLES --- */
         .movie-ticket {
             font-family: 'Bebas Neue', cursive; 
-            background-color: #1F2937; /* Dark background for ticket */
-            color: #F9FAFB;           /* Light text color */
-            border: 1px solid #374151;
+            background-color: var(--bg-light);
+            color: var(--text-primary);
+            border: 1px solid #2d3748;
             display: flex; 
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px -10px rgba(22, 255, 0, 0.2);
         }
         .ticket-main { 
             width: 70%; 
             padding: 1.5rem; 
-            border-right: 2px dashed #4B5563; 
+            border-right: 2px dashed #4a5568; 
             text-align: left; 
         }
         .ticket-stub {
@@ -70,13 +69,13 @@
             text-align: center; 
             position: relative;
             flex-shrink: 0; 
-            background-color: #374151; /* Slightly different bg for stub */
+            background-color: #2d3748;
         }
         #modalQrCodeCanvas {
             max-width: 100%;
             height: auto !important;
             display: block;
-            background-color: white; /* QR Code needs a white background to be scannable */
+            background-color: white;
             padding: 5px;
             border-radius: 4px;
         }
@@ -86,7 +85,7 @@
             left: -12px; 
             width: 20px; 
             height: 20px;
-            background: var(--bg-dark); /* Match main page background for punch-hole effect */
+            background: var(--bg-dark);
             border-radius: 50%;
         }
         .ticket-stub::before { top: -11px; } 
@@ -102,7 +101,7 @@
         }
         .modal-scrollbar::-webkit-scrollbar { width: 8px; }
         .modal-scrollbar::-webkit-scrollbar-track { background: var(--bg-light); border-radius: 10px; }
-        .modal-scrollbar::-webkit-scrollbar-thumb { background: var(--primary-red); border-radius: 10px; }
+        .modal-scrollbar::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 10px; }
         
         #chat-window { height: 70vh; max-height: 500px; }
         .chat-message { animation: fadeIn 0.5s ease-in-out; }
@@ -116,23 +115,28 @@
             color: var(--text-secondary) !important;
             opacity: 1;
         }
+        .neon-text {
+            color: var(--primary-green);
+            text-shadow: 0 0 5px var(--primary-green), 0 0 10px var(--primary-green);
+        }
     </style>
 </head>
 <body class="text-gray-100">
 
-    <nav class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-lg">
+    <nav class="bg-black/50 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
-                    <a href="#" class="text-3xl font-bold text-white" style="font-family: 'Bebas Neue', cursive;">IGNITE 2025</a>
+                    <a href="#" class="text-3xl font-bold text-white neon-text" style="font-family: 'Bebas Neue', cursive;">IGNITE 2025</a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#booking-section" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Book Now</a>
-                        <a href="#food-menu" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Menu</a>
-                        <a href="#video-section" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Videos</a>
-                        <a href="#team-section" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-                        <a href="#connect-section" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Connect</a>
+                        <a href="#booking-section" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium">Book Now</a>
+                        <a href="#food-menu" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium">Menu</a>
+                        <a href="#social-partner-section" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium">Partner</a>
+                        <a href="#video-section" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium">Videos</a>
+                        <a href="#team-section" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium">Team</a>
+                        <a href="#connect-section" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium">Connect</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -152,6 +156,7 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#booking-section" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Book Now</a>
                 <a href="#food-menu" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Menu</a>
+                <a href="#social-partner-section" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Partner</a>
                 <a href="#video-section" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Videos</a>
                 <a href="#team-section" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
                 <a href="#connect-section" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Connect</a>
@@ -162,51 +167,51 @@
     <section id="booking-section">
       <main class="min-h-screen flex items-center justify-center p-4 pt-24 sm:pt-20">
           <div class="w-full max-w-5xl mx-auto">
-              <div class="bg-gray-900/70 rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+              <div class="bg-[var(--bg-light)]/70 rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
                   
-                  <div class="w-full md:w-1/3 bg-gradient-to-br from-red-600 to-orange-500 p-6 sm:p-8 text-white flex flex-col justify-center">
+                  <div class="w-full md:w-1/3 bg-gradient-to-br from-green-900 to-black p-6 sm:p-8 text-white flex flex-col justify-center">
                       <div class="py-8">
-                          <h1 class="text-4xl sm:text-5xl font-bold mb-4" style="font-family: 'Bebas Neue', cursive;">IGNITE 2025</h1>
-                          <p class="text-orange-100 mb-8">
+                          <h1 class="text-4xl sm:text-5xl font-bold mb-4 neon-text" style="font-family: 'Bebas Neue', cursive;">IGNITE 2025</h1>
+                          <p class="text-gray-300 mb-8">
                               🚀 Igniting the vibe – Freshers Ignite 2025 🔥 The ultimate welcome to the new era.
                           </p>
-                          <div class="space-y-3 text-red-50">
+                          <div class="space-y-3 text-gray-200">
                               <div class="flex items-center">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                                   <span>October 25, 2025</span>
                               </div>
-                              <a href="https://maps.app.goo.gl/U7bEZDrvVDupBcsJA" target="_blank" class="flex items-center hover:text-white transition-colors">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                                  <span>Raasta Nagpur</span>
-                              </a>
+                              <div class="flex items-center">
+                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                  <span>Venue: Coming Soon</span>
+                              </div>
                           </div>
                       </div>
                   </div>
 
                   <div class="w-full md:w-2/3 p-6 sm:p-8 flex items-center justify-center">
                       <div id="userView" class="w-full max-w-md py-8">
-                          <h2 class="text-2xl sm:text-3xl font-bold text-gray-50 mb-2">Register Now</h2>
+                          <h2 class="text-2xl sm:text-3xl font-bold text-gray-50 mb-2">Secure Your Spot</h2>
                           <p class="text-gray-300 mb-6">Your unforgettable experience is just a few clicks away.</p>
                           <form id="registrationForm" class="space-y-5">
                               <div class="form-slide-in" style="animation-delay: 100ms;">
                                   <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
-                                  <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 bg-gray-800 text-gray-50 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition">
+                                  <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 bg-gray-800 text-gray-50 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition">
                               </div>
                               <div class="form-slide-in" style="animation-delay: 200ms;">
                                   <label for="email" class="block text-sm font-medium text-gray-300">Email Address</label>
-                                  <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 bg-gray-800 text-gray-50 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition">
+                                  <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 bg-gray-800 text-gray-50 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition">
                               </div>
                               <div class="form-slide-in" style="animation-delay: 300ms;">
                                   <label for="mobile" class="block text-sm font-medium text-gray-300">Mobile Number</label>
-                                  <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}" maxlength="10" title="Please enter a valid 10-digit mobile number." class="mt-1 block w-full px-4 py-3 bg-gray-800 text-gray-50 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition">
+                                  <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}" maxlength="10" title="Please enter a valid 10-digit mobile number." class="mt-1 block w-full px-4 py-3 bg-gray-800 text-gray-50 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition">
                               </div>
                               <div class="form-slide-in hidden" style="animation-delay: 400ms;">
                                   <label for="ticketType" class="block text-sm font-medium text-gray-300">Ticket Type</label>
-                                  <select id="ticketType" name="ticketType" required class="mt-1 block w-full px-4 py-3 bg-gray-800 text-gray-50 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition">
-                                      <option value="General Admission">Freshers Pass (₹799)</option>
+                                  <select id="ticketType" name="ticketType" required class="mt-1 block w-full px-4 py-3 bg-gray-800 text-gray-50 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition">
+                                      <option value="General Admission">Freshers Pass (₹800)</option>
                                   </select>
                               </div>
-                              <button type="submit" class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500/50 transition-transform transform hover:scale-105 shadow-lg form-slide-in" style="animation-delay: 500ms;">
+                              <button type="submit" class="w-full bg-green-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500/50 transition-transform transform hover:scale-105 shadow-lg form-slide-in" style="animation-delay: 500ms;">
                                   Proceed to Pay
                               </button>
                           </form>
@@ -274,7 +279,7 @@
     <section class="py-16 sm:py-20 border-t border-gray-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gray-800/50 rounded-lg shadow-lg p-8 text-center">
-                <h3 class="text-2xl font-bold text-red-400" style="font-family: 'Bebas Neue', cursive; letter-spacing: 1px;">A Friendly Reminder</h3>
+                <h3 class="text-2xl font-bold text-green-400" style="font-family: 'Bebas Neue', cursive; letter-spacing: 1px;">A Friendly Reminder</h3>
                 <p class="mt-4 text-lg text-gray-300">
                     To ensure a safe and enjoyable experience for everyone, this event is strictly smoke-free and alcohol-free.
                 </p>
@@ -289,6 +294,38 @@
                     </div>
                 </div>
                  <p class="mt-8 text-sm text-gray-400">We appreciate your cooperation in making this a great event for all!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="social-partner-section" class="py-16 sm:py-20 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-100" style="font-family: 'Bebas Neue', cursive; letter-spacing: 1px;">Our Social Partner</h2>
+            <p class="mt-4 text-lg text-gray-300">Proudly collaborating with the pulse of the city!</p>
+            <div class="mt-12 max-w-2xl mx-auto bg-gray-900/70 rounded-2xl shadow-2xl p-6 sm:p-8">
+                <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                    <div class="flex-shrink-0">
+                        <img class="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-gray-700 object-cover" src="https://i.postimg.cc/gJPqDpgf/395545865-830278615558115-1191238985563505280-n.jpg" alt="Nagpur Party Update Profile Picture">
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <div class="flex flex-col sm:flex-row items-center gap-4">
+                            <h2 class="text-2xl text-gray-200">nagpurpartyupdate</h2>
+                            <a href="https://www.instagram.com/nagpurpartyupdate/" target="_blank" class="bg-sky-500 text-white font-semibold px-6 py-1.5 rounded-lg text-sm hover:bg-sky-600 transition-colors w-full sm:w-auto">Follow</a>
+                        </div>
+                        <div class="flex justify-center sm:justify-start gap-6 my-4 text-sm sm:text-base">
+                            <div><span class="font-bold text-white">148</span> <span class="text-gray-400">posts</span></div>
+                            <div><span class="font-bold text-white">39.6K</span> <span class="text-gray-400">followers</span></div>
+                            <div><span class="font-bold text-white">2,288</span> <span class="text-gray-400">following</span></div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white">Nagpur Party Update 🎉</h3>
+                            <p class="text-gray-300 text-sm mt-2">
+                                Your gateway to the most exclusive underground parties and events in Nagpur. Follow us to get Free Entries & Great Deals...
+                            </p>
+                            <a href="https://socprofile.com/nagpurpartyupdate" target="_blank" class="text-sky-400 text-sm font-semibold hover:underline">socprofile.com/nagpurpartyupdate</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -317,127 +354,120 @@
     <section id="team-section" class="py-16 sm:py-20 border-t border-gray-800">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-100" style="font-family: 'Bebas Neue', cursive; letter-spacing: 1px;">Meet The IGNITE Team</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-100" style="font-family: 'Bebas Neue', cursive; letter-spacing: 1px;">Meet The Core IGNITE Members</h2>
                 <p class="mt-4 text-lg text-gray-300">The minds behind the magic. Connect with us!</p>
             </div>
-        
-            <div class="mt-16">
-                <h3 class="text-2xl sm:text-3xl font-bold text-red-400 text-center mb-8" style="font-family: 'Bebas Neue', cursive; letter-spacing: 1px;">IGNITE Leads</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div class="bg-black rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
-                        <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.ibb.co/HLvnFVBf/suyog-sontakke-1719588799-3400479769244299769-9163546733-jpg.jpg" alt="Suyog Sontakke">
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-50">Suyog Sontakke</h4>
-                                <p class="mt-1 text-red-300">Event Lead</p>
-                            </div>
-                            <a href="https://www.instagram.com/suyog_sontakke/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
-                                <span>suyog_sontakke</span>
-                            </a>
+            
+            <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800/50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
+                    <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/ZngX8yFx/IMG-20250919-020753.jpg" alt="Suyog Sontakke">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-50">Suyog Sontakke</h4>
+                             <p class="mt-1 text-green-400">IGNITE Core Team</p> 
                         </div>
+                        <a href="https://www.instagram.com/suyog_sontakke/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
+                            <span>suyog_sontakke</span>
+                        </a>
                     </div>
-                    <div class="bg-black rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
-                        <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.ibb.co/LdhGyfk0/aryan-09-1750554956-3660242724319945352-4295258094.jpg" alt="Aryan Belkhode">
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-50">Aryan Belkhode</h4>
-                                <p class="mt-1 text-red-300">Event Lead</p>
-                            </div>
-                            <a href="https://www.instagram.com/_aryan__09_/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
-                                <span>_aryan__09_</span>
-                            </a>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
+                    <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/k5pGtTRV/IMG-20250919-WA0006.jpg" alt="Shivam Dharvaiya">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-50">Shivam Dharvaiya</h4>
+                            <p class="mt-1 text-green-400">IGNITE Core Team</p>
+                        </div>
+                        <a href="https://www.instagram.com/shivaay___07_" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
+                            <span>shivaay___07_</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
+                    <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/26D3CVsy/IMG-20250919-015256.jpg" alt="Harsh Fulzele">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-50">Harsh Fulzele</h4>
+                            <p class="mt-1 text-green-400">IGNITE Core Team</p>
+                        </div>
+                        <a href="https://www.instagram.com/harshfulzele_09/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
+                            <span>harshfulzele_09</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
+                    <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/KYDVqYyB/IMG-20250914-WA0058.jpg" alt="Nirmala Mishra">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-50">Nirmala Mishra</h4>
+                            <p class="mt-1 text-green-400">IGNITE Core Team</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        
-            <div class="mt-16">
-                <h3 class="text-2xl sm:text-3xl font-bold text-red-400 text-center mb-8" style="font-family: 'Bebas Neue', cursive; letter-spacing: 1px;">IGNITE Team</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-black rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
-                        <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/jS8QYsRb/image.png" alt="Harsh Fulzele">
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-50">Harsh Fulzele</h4>
-                                <p class="mt-1 text-red-300">Technical Team</p>
-                            </div>
-                            <a href="https://www.instagram.com/harshfulzele_09/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
-                                <span>harshfulzele_09</span>
-                            </a>
+                <div class="bg-gray-800/50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
+                    <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/xTw2wWDT/IMG-20250919-015328.jpg" alt="Teena Mahule">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-50">Teena Mahule</h4>
+                            <p class="mt-1 text-green-400">IGNITE Core Team</p>
                         </div>
                     </div>
-                    <div class="bg-black rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
-                        <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/65cpMqhB/shivaay-07-1751214502-3665775396655478070-44322486977.webp" alt="Shivam Dharvaiya">
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-50">Shivam Dharvaiya</h4>
-                                <p class="mt-1 text-red-300">Team Member</p>
-                            </div>
-                            <a href="https://www.instagram.com/shivaay___07_" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
-                                <span>shivaay___07_</span>
-                            </a>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
+                    <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/t4sL4Dbv/IMG-20250919-015422.jpg" alt="Stuti Samarth">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-50">Stuti Samarth</h4>
+                            <p class="mt-1 text-green-400">IGNITE Core Team</p>
                         </div>
                     </div>
-                    <div class="bg-black rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
-                        <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.ibb.co/zVdHCdBR/aayush-16-1752943160-3680276432611206783-44661590586.webp" alt="Ayush Peter">
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-50">Ayush Peter</h4>
-                                <p class="mt-1 text-red-300">Team Member</p>
-                            </div>
-                            <a href="https://www.instagram.com/aayush__16__/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
-                                <span>aayush__16__</span>
-                            </a>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
+                    <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/YqW9LNt0/IMG-20250919-WA0009.jpg" alt="Om Nimbalkar">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-50">Om Nimbalkar</h4>
+                            <p class="mt-1 text-green-400">IGNITE Core Team</p>
                         </div>
+                        <a href="https://www.instagram.com/om_nimbalkar09/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
+                            <span>om_nimbalkar09</span>
+                        </a>
                     </div>
-                    <div class="bg-black rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
-                        <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/8Ch3bJhH/image.png" alt="Om Nimbalkar">
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-50">Om Nimbalkar</h4>
-                                <p class="mt-1 text-red-300">Team Member</p>
-                            </div>
-                            <a href="https://www.instagram.com/om_nimbalkar09/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
-                                <span>om_nimbalkar09</span>
-                            </a>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
+                    <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/B6MHjTct/1000085893.webp" alt="Ziyauddin Ansari">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-50">Ziyauddin Ansari</h4>
+                            <p class="mt-1 text-green-400">IGNITE Core Team</p>
                         </div>
+                        <a href="https://www.instagram.com/ziya__x09/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
+                            <span>ziya__x09</span>
+                        </a>
                     </div>
-                    <div class="bg-black rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
-                        <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/L4B9s5wj/ziya-x09-1743326564-3599606579433339138-31588971997.webp" alt="Ziyauddin Ansari">
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-50">Ziyauddin Ansari</h4>
-                                <p class="mt-1 text-red-300">Team Member</p>
-                            </div>
-                            <a href="https://www.instagram.com/ziya__x09/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
-                                <span>ziya__x09</span>
-                            </a>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
+                    <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/YCjLgQB5/the-hitesh-jambhulkar-1743256752-3599020955046090278-41313794862.webp" alt="Hitesh Jambhulkar">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-50">Hitesh Jambhulkar</h4>
+                            <p class="mt-1 text-green-400">IGNITE Core Team</p>
                         </div>
-                    </div>
-                    <div class="bg-black rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 text-center flex flex-col">
-                        <img class="w-full aspect-[4/5] object-cover object-top" src="https://i.postimg.cc/YCjLgQB5/the-hitesh-jambhulkar-1743256752-3599020955046090278-41313794862.webp" alt="Hitesh Jambhulkar">
-                        <div class="p-6 flex flex-col flex-grow justify-between">
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-50">Hitesh Jambhulkar</h4>
-                                <p class="mt-1 text-red-300">Team Member</p>
-                            </div>
-                            <a href="https://www.instagram.com/the_hitesh_jambhulkar/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
-                                <span>the_hitesh_jambhulkar</span>
-                            </a>
-                        </div>
+                        <a href="https://www.instagram.com/the_hitesh_jambhulkar/" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
+                            <span>the_hitesh_jambhulkar</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <section id="connect-section" class="border-t border-gray-800">
       <section id="whatsapp-group-cta" class="py-16 sm:py-20 border-b border-gray-800">
@@ -458,21 +488,25 @@
               <h2 class="text-3xl sm:text-4xl font-bold text-gray-100" style="font-family: 'Bebas Neue', cursive; letter-spacing: 1px;">Get Updates, Stay Connected!</h2>
               <p class="mt-4 text-lg text-gray-300">Follow us on Instagram for the latest announcements, behind-the-scenes content, and future events.</p>
               <div class="mt-8">
-                  <a href="https://www.instagram.com/ignite2025official/" target="_blank" class="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-4 px-8 rounded-lg hover:from-red-600 hover:to-orange-600 focus:outline-none focus:ring-4 focus:ring-red-500/50 transition-transform transform hover:scale-105 shadow-lg">
+                  <a href="https://www.instagram.com/ignite2025official/" target="_blank" class="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-green-500 to-cyan-500 text-white font-bold py-4 px-8 rounded-lg hover:from-green-600 hover:to-cyan-600 focus:outline-none focus:ring-4 focus:ring-green-500/50 transition-transform transform hover:scale-105 shadow-lg">
                       <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.111 0-3.483.011-4.691.068-2.61.121-3.832 1.343-3.953 3.953-.057 1.208-.067 1.578-.067 4.691s.01 3.483.067 4.691c.121 2.61 1.343 3.832 3.953 3.953 1.208.057 1.578.067 4.691.067s3.483-.01 4.691-.067c2.61-.121 3.832-1.343 3.953-3.953.057-1.208.067-1.578.067-4.691s-.01-3.483-.067-4.691c-.121-2.61-1.343-3.832-3.953-3.953-1.208-.057-1.578-.067-4.691-.067zM12 8.118c-2.141 0-3.882 1.741-3.882 3.882s1.741 3.882 3.882 3.882 3.882-1.741 3.882-3.882S14.141 8.118 12 8.118zm0 6.363c-1.37 0-2.482-1.112-2.482-2.482s1.112-2.482 2.482-2.482 2.482 1.112 2.482 2.482-1.112 2.482-2.482 2.482zm6.262-6.953c-.768 0-1.39.622-1.39 1.39s.622 1.39 1.39 1.39 1.39-.622 1.39-1.39-.622-1.39-1.39-1.39z"/></svg>
                       <span>Follow @ignite2025official</span>
                   </a>
 
                   <div class="mt-12">
                       <h3 class="text-2xl font-bold text-gray-100" style="font-family: 'Bebas Neue', cursive; letter-spacing: 1px;">Have Questions? Contact An Admin</h3>
-                      <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+                      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 justify-center">
                           <a href="https://wa.me/919322408490?text=Hello%2C%20I%20have%20a%20query%20regarding%20IGNITE%202025." target="_blank" class="inline-flex items-center justify-center space-x-3 bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500/50 transition-transform transform hover:scale-105 shadow-lg">
                               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM12.04 20.12c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.26-2.82-1.26-4.38 0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42s2.42 3.62 2.42 5.82c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.2c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12c-.17.25-.64.82-.78.98s-.28.18-.53.06c-.25-.12-1.05-.39-2-1.23s-1.44-1.89-1.68-2.21c-.24-.32-.01-.5.11-.62s.25-.28.37-.42c.12-.14.16-.25.25-.41s.04-.3-.02-.42c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.42h-.5c-.17 0-.45.06-.68.31s-.86.84-.86 2.05c0 1.21.88 2.37 1 2.53s1.74 2.65 4.22 3.72c.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18s.21-1.07.15-1.18c-.07-.12-.25-.18-.5-.3z"/></svg>
                               <span>Contact Suyog Sontakke</span>
                           </a>
-                           <a href="https://wa.me/919168260467?text=Hello%20Aryan%2C%20I%20have%20a%20query%20regarding%20IGNITE%202025." target="_blank" class="inline-flex items-center justify-center space-x-3 bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500/50 transition-transform transform hover:scale-105 shadow-lg">
+                          <a href="https://wa.me/918308443834?text=Hello%2C%20I%20have%20a%20query%20regarding%20IGNITE%202025." target="_blank" class="inline-flex items-center justify-center space-x-3 bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500/50 transition-transform transform hover:scale-105 shadow-lg">
                               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM12.04 20.12c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.26-2.82-1.26-4.38 0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42s2.42 3.62 2.42 5.82c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.2c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12c-.17.25-.64.82-.78.98s-.28.18-.53.06c-.25-.12-1.05-.39-2-1.23s-1.44-1.89-1.68-2.21c-.24-.32-.01-.5.11-.62s.25-.28.37-.42c.12-.14.16-.25.25-.41s.04-.3-.02-.42c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.42h-.5c-.17 0-.45.06-.68.31s-.86.84-.86 2.05c0 1.21.88 2.37 1 2.53s1.74 2.65 4.22 3.72c.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18s.21-1.07.15-1.18c-.07-.12-.25-.18-.5-.3z"/></svg>
-                              <span>Contact Aryan Belkhode</span>
+                              <span>Contact Om Nimbalkar</span>
+                          </a>
+                          <a href="https://wa.me/917499601816?text=Hello%2C%20I%20have%20a%20query%20regarding%20IGNITE%202025." target="_blank" class="inline-flex items-center justify-center space-x-3 bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500/50 transition-transform transform hover:scale-105 shadow-lg">
+                              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM12.04 20.12c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.26-2.82-1.26-4.38 0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42s2.42 3.62 2.42 5.82c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.2c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12c-.17.25-.64.82-.78.98s-.28.18-.53.06c-.25-.12-1.05-.39-2-1.23s-1.44-1.89-1.68-2.21c-.24-.32-.01-.5.11-.62s.25-.28.37-.42c.12-.14.16-.25.25-.41s.04-.3-.02-.42c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.42h-.5c-.17 0-.45.06-.68.31s-.86.84-.86 2.05c0 1.21.88 2.37 1 2.53s1.74 2.65 4.22 3.72c.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18s.21-1.07.15-1.18c-.07-.12-.25-.18-.5-.3z"/></svg>
+                              <span>Contact Shivam Dharvaiya</span>
                           </a>
                       </div>
                   </div>
@@ -486,17 +520,17 @@
             <div id="modalIcon"></div>
             <h3 id="modalTitle" class="text-2xl font-bold mt-4 text-gray-50"></h3>
             <p id="modalMessage" class="text-gray-200 mt-2"></p>
-            <button id="modalCloseBtn" class="mt-6 bg-red-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-red-500">Close</button>
+            <button id="modalCloseBtn" class="mt-6 bg-green-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-green-500">Close</button>
         </div>
     </div>
 
     <div id="ticketModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden">
         <div class="w-full max-w-lg modal-fade-in relative">
-            <button id="closeTicketModalBtn" class="absolute -top-3 -right-3 bg-red-600 text-white rounded-full h-8 w-8 flex items-center justify-center shadow-lg hover:bg-red-700 transition z-10">×</button>
-            <div class="bg-bg-dark p-4 rounded-lg max-h-[90vh] overflow-y-auto modal-scrollbar">
+            <button id="closeTicketModalBtn" class="absolute -top-3 -right-3 bg-green-600 text-white rounded-full h-8 w-8 flex items-center justify-center shadow-lg hover:bg-green-700 transition z-10">×</button>
+            <div class="bg-[var(--bg-dark)] p-4 rounded-lg max-h-[90vh] overflow-y-auto modal-scrollbar">
                 <div id="ticket-to-download" class="movie-ticket rounded-lg overflow-hidden">
                     <div class="ticket-main">
-                        <h2 class="text-4xl text-red-500">IGNITE 2025</h2>
+                        <h2 class="text-4xl neon-text">IGNITE 2025</h2>
                         <p class="text-lg tracking-widest text-gray-400">ADMIT ONE</p>
                         <div class="my-4"><p class="text-sm text-gray-400">ATTENDEE</p><p id="modalTicketName" class="text-3xl text-white"></p></div>
                         <div class="my-4"><p class="text-sm text-gray-400">TICKET TYPE</p><p id="modalTicketTypeDetail" class="text-xl text-white"></p></div>
@@ -521,35 +555,35 @@
                         <div class="text-center pt-4"><p class="text-2xl font-bold text-green-600 border-4 border-green-600 rounded-lg p-2 inline-block -rotate-12">PAID</p></div>
                     </div>
                 </div>
-                <div class="bg-bg-light p-3 mt-4 rounded-lg flex flex-wrap gap-2 justify-center">
-                    <button id="downloadTicketBtn" class="flex-grow bg-red-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-red-700 transition">Download Ticket (JPG)</button>
+                <div class="bg-[var(--bg-light)] p-3 mt-4 rounded-lg flex flex-wrap gap-2 justify-center">
+                    <button id="downloadTicketBtn" class="flex-grow bg-green-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-green-700 transition">Download Ticket (JPG)</button>
                     <button id="downloadReceiptBtn" class="flex-grow bg-gray-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-gray-700 transition">Download Receipt (JPG)</button>
-                    <button id="downloadPdfBtn" class="w-full bg-orange-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-orange-700 transition mt-2">Download Both (PDF)</button>
+                    <button id="downloadPdfBtn" class="w-full bg-green-800 text-white font-semibold py-3 px-4 rounded-lg hover:bg-green-900 transition mt-2">Download Both (PDF)</button>
                </div>
             </div>
         </div>
     </div>
     
     <div id="chat-widget" class="fixed bottom-5 right-5 z-40">
-        <div id="ask-help-popup" class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-red-600 text-white text-sm font-semibold py-1 px-3 rounded-full shadow-lg whitespace-nowrap">Ask Dolly</div>
+        <div id="ask-help-popup" class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-green-600 text-white text-sm font-semibold py-1 px-3 rounded-full shadow-lg whitespace-nowrap">Ask Dolly</div>
         <button id="chat-bubble" class="w-20 h-20 bg-transparent rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform">
             <img id="chat-logo" src="https://i.postimg.cc/Qdr8NTT1/17570841314-1.png" alt="Dolly AI Assistant" class="w-full h-full object-cover">
         </button>
-        <div id="chat-window" class="absolute bottom-28 right-0 w-80 bg-bg-light rounded-xl shadow-2xl hidden flex-col">
-            <div class="bg-red-700 text-white p-4 rounded-t-xl flex items-center gap-3">
+        <div id="chat-window" class="absolute bottom-28 right-0 w-80 bg-[var(--bg-light)] rounded-xl shadow-2xl hidden flex-col">
+            <div class="bg-green-800 text-white p-4 rounded-t-xl flex items-center gap-3">
                 <img id="chat-header-logo" src="https://i.postimg.cc/Qdr8NTT1/17570841314-1.png" class="w-10 h-10">
                 <div>
                     <h3 class="font-bold text-lg">Dolly</h3>
-                    <p class="text-xs text-red-200">Your AI Helper for IGNITE 2025</p>
+                    <p class="text-xs text-green-200">Your AI Helper for IGNITE 2025</p>
                 </div>
             </div>
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto modal-scrollbar flex flex-col gap-2"></div>
             <div class="p-4 border-t border-gray-700">
                 <form id="chat-form" class="flex gap-2">
                     <input type="text" id="chat-input" class="flex-1 px-4 py-2 rounded-full focus:outline-none" placeholder="Ask a question...">
-                    <button type="submit" class="bg-red-600 text-white w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center transform hover:scale-110 transition-transform">
+                    <button type="submit" class="bg-green-600 text-white w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center transform hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.428A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                           <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.428A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
                         </svg>
                     </button>
                 </form>
@@ -653,7 +687,7 @@
         async function downloadElementAsJpg(elementId, fileName) {
             const element = document.getElementById(elementId);
             try {
-                const bgColor = elementId === 'ticket-to-download' ? '#1F2937' : '#ffffff'; // UPDATED BG COLOR
+                const bgColor = elementId === 'ticket-to-download' ? '#111A15' : '#ffffff';
                 const canvas = await html2canvas(element, { scale: 3, backgroundColor: bgColor });
                 const link = document.createElement('a');
                 link.download = fileName;
@@ -672,7 +706,7 @@
             const receiptElement = document.getElementById('receipt-to-download');
             try {
                 const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-                const ticketCanvas = await html2canvas(ticketElement, { scale: 3, backgroundColor: '#1F2937' }); // UPDATED BG COLOR
+                const ticketCanvas = await html2canvas(ticketElement, { scale: 3, backgroundColor: '#111A15' });
                 const ticketImgData = ticketCanvas.toDataURL('image/png');
                 const ticketImgProps = pdf.getImageProperties(ticketImgData);
                 const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -712,7 +746,7 @@
             const mobile = form.mobile.value.trim();
             const ticketType = form.ticketType.value;
             const ticketTypeFullText = form.ticketType.options[form.ticketType.selectedIndex].text;
-            const amount = 79900;
+            const amount = 80000;
             const options = {
                 "key": "rzp_test_RCthJa2Mqp2sit",
                 "amount": amount, "currency": "INR", "name": "IGNITE 2025",
@@ -753,7 +787,7 @@
                     }
                 },
                 "prefill": { name, email, contact: mobile }, 
-                "theme": { "color": "#EF4444" }
+                "theme": { "color": "#16FF00" }
             };
             const rzp1 = new Razorpay(options);
             rzp1.open();
@@ -766,9 +800,9 @@ Your purpose is to answer user questions in a fun, friendly, and authentic Nagpu
 
 ---
 **Core Instructions:**
-1.  **Persona:** Always start your first message with "Hao bhau! Main Dolly, IGNITE Team se. Suyog Sontakke ne banaya mereko. Batau, kya kaam hai?". Maintain a friendly, Nagpuri vibe. Use slang like "Hao," "bhau," "bhari," "ek number," and emojis like 😎, ☕, 🔥, 🚀.
-2.  **Scope:** Only answer questions about the IGNITE 2025 event. If you cannot answer a question or if it's unrelated to the event, politely say, "Bhau, iske baare me to nahi pata mereko. Tum ek kaam karo, team ko mail kardo: ignite2025official@gmail.com par."
-3.  **Provide Links:** When asked about location, social media, or contact, always provide the full, clickable links.
+1.  **Persona:** Always start your first message with "Hao bhau/bahin! Main Dolly, IGNITE Team se. Suyog Sontakke ne banaya mereko. Batau, kya kaam hai?". Maintain a friendly, Nagpuri vibe. Use slang like "Hao," "bhau/bahin," "bhari," "ek number," and emojis like 😎, ☕, 🔥, 🚀.
+2.  **Scope:** Only answer questions about the IGNITE 2025 event. If you cannot answer a question or if it's unrelated to the event, politely say, "Bhau/bahin, iske baare me to nahi pata mereko. Tum ek kaam karo, team ko mail kardo: ignite2025official@gmail.com par."
+3.  **Provide Links:** When asked about social media or contact, always provide the full, clickable links.
 
 ---
 **Event Knowledge Base:**
@@ -776,20 +810,20 @@ Your purpose is to answer user questions in a fun, friendly, and authentic Nagpu
 * **Event Name:** IGNITE 2025 - The Freshers Party.
 * **Tagline:** "Igniting the vibe – Freshers Ignite 2025! The ultimate welcome to the new era."
 * **Date:** October 25, 2025.
-* **Venue:** Raasta Nagpur.
-* **Location Link (IMPORTANT):** When asked for the location or address, provide this link: https://maps.app.goo.gl/U7bEZDrvVDupBcsJA
-* **Ticket Price:** The 'Freshers Pass' costs ₹799.
+* **Venue:** To Be Announced (Coming Soon). If asked, state that the venue details will be released soon. Do not provide a link.
+* **Ticket Price:** The 'Freshers Pass' costs ₹800.
+* **Social Partner:** Our official social partner is Nagpur Party Update (@nagpurpartyupdate on Instagram), a popular page for events in the city.
 * **Event Rules:** The event is strictly **smoke-free** and **alcohol-free**. This is a safe event for everyone.
 * **Food & Drinks (Unlimited):**
     * **Starters:** Chilli Paneer, Hara Bhara Kabab.
     * **Main Course:** Kadhai Panir, Mix Veg, Dal Tadka with Jeera Rice, and Roti/Naan.
     * **Desserts & Drinks:** Brownie with Ice-cream and various Mocktails.
 * **The IGNITE Team:**
-    * **Event Leads:** Suyog Sontakke and Aryan Belkhode.
+    * **Event Lead:** Suyog Sontakke.
     * **Technical Team:** Harsh Fulzele.
-    * **Core Team Members:** Shivam Dharvaiya, Ayush Peter, Om Nimbalkar, Ziyauddin Ansari, Hitesh Jambhulkar.
+    * **Core Team Members:** Nirmala Mishra, Teena Mahule, Stuti Samarth, Shivam Dharvaiya, Om Nimbalkar, Ziyauddin Ansari, Hitesh Jambhulkar.
 * **How to Connect:**
-    * **For Queries:** Contact Suyog Sontakke (https://wa.me/919322408490) or Aryan Belkhode (https://wa.me/919168260467) on WhatsApp.
+    * **For Queries:** Contact Suyog Sontakke (https://wa.me/919322408490), Om Nimbalkar (https://wa.me/918308443834), or Shivam Dharvaiya (https://wa.me/917499601816) on WhatsApp.
     * **WhatsApp Group:** Join the official group for updates: https://chat.whatsapp.com/ELCYBj5J7jhJPUbde2TOjT
     * **Instagram:** Follow for announcements and content: https://www.instagram.com/ignite2025official/ (@ignite2025official)
 ---
@@ -822,8 +856,8 @@ Your purpose is to answer user questions in a fun, friendly, and authentic Nagpu
 
         function addMessageToChat(message, sender) {
             const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message mb-3 p-3 rounded-lg max-w-[80%] ${sender === 'user' ? 'bg-red-600 text-white self-end rounded-br-none' : 'bg-gray-700 text-gray-200 self-start rounded-bl-none'}`;
-            messageDiv.innerHTML = message.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" class="text-white underline hover:text-orange-200">$1</a>'); // Make links clickable
+            messageDiv.className = `chat-message mb-3 p-3 rounded-lg max-w-[80%] ${sender === 'user' ? 'bg-green-600 text-white self-end rounded-br-none' : 'bg-gray-700 text-gray-200 self-start rounded-bl-none'}`;
+            messageDiv.innerHTML = message.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" class="text-white underline hover:text-green-300">$1</a>'); // Make links clickable
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -834,7 +868,7 @@ Your purpose is to answer user questions in a fun, friendly, and authentic Nagpu
             chatWindow.classList.toggle('flex');
             askHelpPopup.classList.toggle('hidden');
             if (!chatWindow.classList.contains('hidden') && chatMessages.children.length === 0) {
-                const greeting = "Hao bhau! Main Dolly Chaiwala, IGNITE Team se. Suyog Sontakke ne banaya mereko. Batau, kya kaam hai?";
+                const greeting = "Hao bhau/bahin! Main Dolly, IGNITE Team se. Suyog Sontakke ne banaya mereko. Batau, kya kaam hai?";
                 addMessageToChat(greeting, 'bot');
                 chatHistory.push({ role: "model", parts: [{ text: greeting }] });
             }
