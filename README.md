@@ -8,19 +8,19 @@
   
   <!-- GitHub badges -->
   <p>
-    <a href="https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME]/releases"><img src="https://img.shields.io/github/v/release/[YOUR_USERNAME]/[YOUR_REPO_NAME]?label=Latest%20release&style=flat-square" alt="Latest release"/></a>
-    <a href="https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME]/stargazers"><img src="https://img.shields.io/github/stars/[YOUR_USERNAME]/[YOUR_REPO_NAME]?style=flat-square" alt="Stars"/></a>
-    <a href="https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME]/forks"><img src="https://img.shields.io/github/forks/[YOUR_USERNAME]/[YOUR_REPO_NAME]?style=flat-square" alt="Fork"/></a>
-    <a href="https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME]/blob/main/LICENSE"><img src="https://img.shields.io/github/license/[YOUR_USERNAME]/[YOUR_REPO_NAME]?style=flat-square&color=blue" alt="License"/></a>
-    <img src="https://img.shields.io/github/languages/top/[YOUR_USERNAME]/[YOUR_REPO_NAME]?style=flat-square&logo=html5&logoColor=white&color=E34F26" alt="Top Language: HTML"/>
+    <a href="https://github.com/suyogsontakke/ignite-2025-website/releases"><img src="https://img.shields.io/github/v/release/suyogsontakke/ignite-2025-website?label=Latest%20release&style=flat-square" alt="Latest release"/></a>
+    <a href="https://github.com/suyogsontakke/ignite-2025-website/stargazers"><img src="https://img.shields.io/github/stars/suyogsontakke/ignite-2025-website?style=flat-square" alt="Stars"/></a>
+    <a href="https://github.com/suyogsontakke/ignite-2025-website/forks"><img src="https://img.shields.io/github/forks/suyogsontakke/ignite-2025-website?style=flat-square" alt="Fork"/></a>
+    <a href="https://github.com/suyogsontakke/ignite-2025-website/blob/main/LICENSE"><img src="https://img.shields.io/github/license/suyogsontakke/ignite-2025-website?style=flat-square&color=blue" alt="License"/></a>
+    <img src="https://img.shields.io/github/languages/top/suyogsontakke/ignite-2025-website?style=flat-square&logo=html5&logoColor=white&color=E34F26" alt="Top Language: HTML"/>
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs welcome"/>
   </p>
   
-  <strong>Live Demo: <a href="#">\[YOUR_LIVE_DEMO_LINK_HERE\]</a></strong>
+  <strong>Live Demo: <a href="https://ignite-2025.vercel.app/">IGNITE BOOKING</a></strong>
 </div>
 
 <!-- Add a high-quality screenshot of your booking page -->
-![IGNITE 2025 Screenshot](https://placehold.co/800x400/0B120E/16FF00?text=Your+Booking+Page+Screenshot+Here)
+![IGNITE 2025 Screenshot](https://ibb.co/v6RTk63C)
 
 ---
 
@@ -119,10 +119,10 @@ To get this booking website running locally.
 ### ⚙️ Installation & Setup
 
 1.  **Clone the Repo**
-    *(Replace with your actual GitHub username and repo name)*
+
     ```bash
-    git clone [https://github.com/](https://github.com/)[YOUR_USERNAME]/[YOUR_REPO_NAME].git
-    cd [YOUR_REPO_NAME]
+    git clone https://github.com/suyogsontakke/ignite-2025-website.git
+    cd ignite-2025-website
     ```
 
 2.  **Configure Firestore Rules**
@@ -184,6 +184,7 @@ Deploy this static website using any modern hosting provider.
 ```bash
 # Example Firebase Deployment
 firebase deploy --only hosting
+```
 
 🤝 Contributing
 
