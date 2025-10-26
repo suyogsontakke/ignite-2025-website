@@ -147,7 +147,7 @@ Git
 
 ⚙️ Installation & Setup
 
-Clone the Repo
+1. Clone the Repo
 
 ```bash
 git clone https://github.com/suyogsontakke/ignite-2025-website.git
@@ -156,8 +156,7 @@ git clone https://github.com/suyogsontakke/ignite-2025-website.git
 cd ignite-2025-website
 ```
 
-
-Set Up Firebase
+2. Set Up Firebase
 
 Create a new project in the Firebase Console.
 
@@ -179,15 +178,19 @@ Firebase Config: Locate the firebaseConfig object and paste your copied config v
 
 Gemini API Key: Find the getDollyResponse function. Replace the placeholder apiKey ("YOUR_GEMINI_API_KEY_HERE" or similar) with your actual Google AI Studio key.
 
+```bash
 const apiKey = "YOUR_GEMINI_API_KEY_HERE"; // <-- PASTE YOUR KEY HERE
+```
 
 
 Razorpay Key: Find the handlePaymentAndRegistration function. Locate the options object for new Razorpay(options) and replace the placeholder key with your Razorpay Test Key.
 
+```bash
 const options = {
     "key": "YOUR_RAZORPAY_TEST_KEY_HERE", // <-- PASTE YOUR KEY HERE
     // ... other options
 };
+```
 
 
 ▶️ Run Locally
@@ -198,13 +201,17 @@ Recommended Method (using a local server):
 
 If you don't have a local server installed, you can use npx:
 
+```bash
 npx live-server
+```
 
 
 Or, if you have Node.js installed, you can install live-server globally:
 
+```bash
 npm install -g live-server
 live-server
+```
 
 
 This will typically open the site at http://127.0.0.1:8080 (or similar) and automatically reload when you save changes. Using a server avoids potential issues with ES6 modules loading directly from the file system.
@@ -213,6 +220,7 @@ This will typically open the site at http://127.0.0.1:8080 (or similar) and auto
 
 This project requires the following keys/credentials to be configured directly within the index.html file:
 
+```bash
 // Inside <script type="module">
 
 // Firebase Configuration Object
@@ -233,6 +241,7 @@ const options = {
     "key": "YOUR_RAZORPAY_TEST_KEY_HERE",
     // ...
 };
+```
 
 
 Note: For a production deployment, consider securing these keys further, potentially using Firebase Hosting's reserved URLs or server-side functions if scaling the project.
@@ -247,6 +256,7 @@ Netlify: Similar to Vercel, connect your GitHub repository.
 
 Firebase Hosting: Use the Firebase CLI to deploy the index.html file and any assets.
 
+```bash
 # Install Firebase CLI (if you haven't already)
 npm install -g firebase-tools
 # Login to Firebase
@@ -255,6 +265,7 @@ firebase login
 firebase init hosting
 # Deploy
 firebase deploy --only hosting
+```
 
 
 GitHub Pages: Enable GitHub Pages in your repository settings.
@@ -277,7 +288,7 @@ Open a Pull Request
 
 📄 License
 
-Distributed under the MIT License. See LICENSE file for more information (you may need to add a LICENSE file to your repo).
+Distributed under the MIT License. See ```bash LICENSE ``` file for more information (you may need to add a LICENSE file to your repo).
 
 💎 Acknowledgements
 
