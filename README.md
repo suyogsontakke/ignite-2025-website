@@ -18,7 +18,7 @@ A responsive, single-page website for the IGNITE 2025 event, featuring secure Ra
 
 <p>
 <!-- Add your live demo link here -->
-<strong><a href="#">[YOUR_LIVE_DEMO_LINK_HERE]</a></strong>
+<strong><a href="#">[https://ignite-2025.vercel.app/]</a></strong>
 </p>
 </div>
 
@@ -106,7 +106,7 @@ Installation & Setup
 
 Clone the Repo
 
-git clone [https://github.com/](https://github.com/)[YOUR_USERNAME]/[YOUR_REPO_NAME].git
+git clone [https://github.com/](https://github.com/ignite-2025-website)suyogsontakke/.git
 
 
 Set Up Firebase
