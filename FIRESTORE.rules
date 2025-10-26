@@ -1,0 +1,43 @@
+rules_version = '2';
+
+service cloud.firestore {
+match /databases/{database}/documents {
+
+// Deny all reads and writes by default
+match /{document=**} {
+  allow read, write: if false;
+}
+
+// --- RULES FOR THE BOOKING WEBSITE (index.html) ---
+//
+// Allow any user (even anonymous) to CREATE a new document
+// in 'pending_registrations', but only if the data is valid.
+// This stops all read, update, or delete attempts.
+//
+match /pending_registrations/{docId} {
+  allow create: if
+    // 1. User must be signed in (anonymous is fine here).
+    request.auth != null &&
+    
+    // 2. The new document must have *exactly* these fields.
+    //    This prevents users from adding extra fields like `isAdmin: true`.
+    request.resource.data.keys().hasOnly([
+      'name', 'email', 'mobile', 'ticketType', 'paymentId', 'registeredAt'
+    ]) &&
+    
+    // 3. Data must be valid (prevents bad data).
+    request.resource.data.name is string &&
+    request.resource.data.name.size() > 0 &&
+    request.resource.data.email is string &&
+    request.resource.data.email.matches('^[^@]+@[^@]+\\.[^@]{2,}$') &&
+    request.resource.data.mobile is string &&
+    request.resource.data.mobile.size() == 10 &&
+    request.resource.data.ticketType == "General Admission" &&
+    request.resource.data.paymentId is string &&
+    request.resource.data.paymentId.size() > 3 &&
+    request.resource.data.registeredAt == request.time;
+}
+
+
+}
+}
