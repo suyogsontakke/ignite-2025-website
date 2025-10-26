@@ -148,10 +148,13 @@ Git
 ⚙️ Installation & Setup
 
 Clone the Repo
-(Replace with your actual GitHub username and repo name)
 
-git clone [https://github.com/](https://github.com/)suyogsontakke/ignite-2025-website.git
+```bash
+git clone https://github.com/suyogsontakke/ignite-2025-website.git
+```
+```bash
 cd ignite-2025-website
+```
 
 
 Set Up Firebase
