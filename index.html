@@ -794,7 +794,7 @@
                 "description": `Ticket: ${ticketTypeFullText}`,
                 "handler": async function (response) {
                     try {
-                        const attendeesCol = collection(db, 'attendees');
+                        const attendeesCol = collection(db, 'pending_registrations');
                         const docRef = await addDoc(attendeesCol, { name, email, mobile, ticketType, paymentId: response.razorpay_payment_id, registeredAt: serverTimestamp() });
                         
                         form.reset();
@@ -973,6 +973,7 @@ Your purpose is to answer user questions in a fun, friendly, and authentic Nagpu
 
 </body>
 </html>
+
 
 
 
