@@ -6,29 +6,62 @@
 A responsive, single-page website for the IGNITE 2025 event, featuring secure Razorpay payments, a Google Gemini AI assistant, and instant PDF/JPG ticket generation.
 </p>
 
-<!-- Badges: Replace with your actual stack/license -->
+<!-- GitHub badges -->
 
 <p>
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/HTML5-E34F26%3Fstyle%3Dfor-the-badge%26logo%3Dhtml5%26logoColor%3Dwhite" alt="HTML5" />
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Tailwind_CSS-38B2AC%3Fstyle%3Dfor-the-badge%26logo%3Dtailwind-css%26logoColor%3Dwhite" alt="Tailwind CSS" />
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/JavaScript-F7DF1E%3Fstyle%3Dfor-the-badge%26logo%3Djavascript%26logoColor%3Dblack" alt="JavaScript" />
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Firebase-FFCA28%3Fstyle%3Dfor-the-badge%26logo%3Dfirebase%26logoColor%3Dblack" alt="Firebase" />
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/License-MIT-blue.svg%3Fstyle%3Dfor-the-badge" alt="License: MIT" />
+<a href="https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME]/releases"><img src="https://img.shields.io/github/v/release/suyogsontakke/ignite-2025-website?label=Latest%20release&style=flat-square" alt="Latest release"/></a>
+<a href="https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME]/stargazers"><img src="https://img.shields.io/github/stars/suyogsontakke/ignite-2025-website?style=flat-square" alt="Stars"/></a>
+<a href="https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME]/forks"><img src="https://img.shields.io/github/forks/suyogsontakke/ignite-2025-website?style=flat-square" alt="Fork"/></a>
+<a href="https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME]/blob/main/LICENSE"><img src="https://img.shields.io/github/license/suyogsontakke/ignite-2025-website?style=flat-square&color=blue" alt="License"/></a>
+<img src="https://img.shields.io/github/languages/top/suyogsontakke/ignite-2025-website?style=flat-square&logo=html5&logoColor=white&color=E34F26" alt="Top Language: HTML"/>
+<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs welcome"/>
 </p>
 
 <p>
 <!-- Add your live demo link here -->
-<strong><a href="#">[https://ignite-2025.vercel.app/]</a></strong>
+<strong>Live Demo: <a href="#">[YOUR_LIVE_DEMO_LINK_HERE]</a></strong>
 </p>
 </div>
 
 <!-- Add a high-quality screenshot of your booking page -->
 
+📖 Table of Contents
+
+<details><summary>Table of Contents</summary>
+
+🚀 About This Project
+
+✨ Key Features
+
+🛠️ Technologies Used
+
+🔄 How It Works: Data Flow
+
+🧰 Getting Started
+
+📋 Prerequisites
+
+⚙️ Installation & Setup
+
+▶️ Run Locally
+
+🔒 Environment Variables
+
+🚀 Deployment
+
+🤝 Contributing
+
+📄 License
+
+💎 Acknowledgements
+
+</details>
+
 🚀 About This Project
 
 This repository contains the complete public-facing booking website for the "IGNITE 2025" event. It's a single-page application (SPA) designed to be the "front door" for attendees. It handles everything from event information and AI-powered support to secure ticket purchasing and instant ticket delivery.
 
-It is built with Vanilla JavaScript and Tailwind CSS for a fast, modern, and fully responsive experience, with no frontend framework dependencies.
+It is built with Vanilla JavaScript and Tailwind CSS for a fast, modern, and fully responsive experience, with no frontend framework dependencies. This project serves as the client-facing component of a larger event management system that includes a secure admin panel and QR code verifier (in separate repositories/projects).
 
 ✨ Key Features
 
@@ -42,33 +75,39 @@ Uses qrious to create a unique, scannable QR code for the ticket.
 
 Uses html2canvas and jsPDF to offer downloads in both JPG and combined PDF formats.
 
-Secure Backend Connection: Securely submits all registration data to a Cloud Firestore database, placing it in a pending_registrations collection for admin approval (handled by a separate, secure admin application).
+Secure Backend Connection: Securely submits all registration data to a Cloud Firestore database, placing it in a pending_registrations collection for admin approval (handled by a separate, secure admin application). Uses Firebase Anonymous Authentication for secure write access.
 
 Fully Responsive Design: A mobile-first design built with Tailwind CSS that looks great on all devices, from phones to desktops.
 
-Dynamic UI: Includes custom animations, a mobile-friendly navbar, and interactive menu cards to create an engaging user experience.
+Dynamic UI: Includes custom animations, a mobile-friendly navbar, and interactive menu cards using only Vanilla JavaScript and CSS.
 
-🛠️ Tech Stack
+🛠️ Technologies Used
 
-Frontend: HTML5, Tailwind CSS, Vanilla JavaScript (ES6 Modules)
+<details><summary>This project utilizes the following technologies and services:</summary>
 
-Backend as a Service (BaaS):
+HTML5: Standard markup language for creating web pages.
 
-Firebase Firestore: NoSQL database for storing registration data.
+Tailwind CSS: A utility-first CSS framework for rapidly building custom user interfaces.
 
-Firebase Authentication: Used for anonymous sign-in to grant the client secure, write-only permissions to the database.
+JavaScript (ES6+): Core programming language for web interactivity. Uses modern features like Modules.
 
-APIs & Libraries:
+Firebase Firestore: A flexible, scalable NoSQL cloud database to store registration data securely.
 
-Razorpay API: For payment processing.
+Firebase Authentication: Used for Anonymous Authentication to secure database writes.
 
-Google Gemini API: For the AI chatbot.
+Razorpay API: Payment gateway integration for secure online payments in India.
 
-jsPDF: For client-side PDF generation.
+Google Gemini API: Powers the "Dolly" AI assistant for answering user questions.
 
-html2canvas: For capturing HTML elements as images.
+jsPDF: Client-side JavaScript library to generate PDF documents.
 
-qrious: For generating QR codes.
+html2canvas: JavaScript library to take "screenshots" of HTML elements.
+
+qrious: JavaScript library for generating QR codes.
+
+</details>
+
+
 
 🔄 How It Works: Data Flow
 
@@ -86,57 +125,174 @@ The app combines the form data and paymentId and securely writes it as a new doc
 
 Simultaneously, the app uses the user's data to generate the ticket and receipt on-the-fly and presents them with download buttons.
 
-(Separately) An admin uses a secure admin panel to read from pending_registrations, approve the ticket (which moves it to approved_registrations), and prepare it for verification at the event.
+(Separately) An admin uses a secure admin panel (not included in this repo) to read from pending_registrations, approve the ticket (which moves it to an approved_registrations collection), and prepare it for verification at the event using a QR scanner app (also separate).
 
-🚀 Getting Started
+🧰 Getting Started
 
 To get a local copy up and running, follow these steps.
 
-Prerequisites
+📋 Prerequisites
 
 You will need accounts and API keys for the following services:
 
 Firebase (for Firestore & Auth)
 
-Razorpay (for payment keys)
+Razorpay (for payment keys - use Test keys for development)
 
 Google AI Studio (for the Gemini API Key)
 
-Installation & Setup
+Node.js (Optional: for using a local development server like live-server)
+
+Git
+
+⚙️ Installation & Setup
 
 Clone the Repo
 
-git clone [https://github.com/](https://github.com/ignite-2025-website)suyogsontakke/.git
+git clone https://github.com/suyogsontakke/ignite-2025-website.git
+cd ignite-2025-website
 
 
 Set Up Firebase
 
 Create a new project in the Firebase Console.
 
-Go to Firestore Database, create a database, and go to the Rules tab.
+Go to Firestore Database, create a database (start in Test mode for easy setup, but remember to secure it with rules later).
 
-Paste the contents of the FIRESTORE.rules file from this repository and Publish.
+Go to the Rules tab, paste the contents of the FIRESTORE.rules file from this repository and Publish.
 
 Go to Authentication -> Sign-in method and enable Anonymous sign-in.
 
-Go to Project Settings and copy your Firebase config object (it looks like { apiKey: "...", authDomain: "...", ... }).
+Go to Project Settings (⚙️ icon) -> Your apps -> Web app. Register a new web app, and copy the Firebase config object (it looks like { apiKey: "...", authDomain: "...", ... }).
 
-Configure index.html
+Configure Environment Variables (in index.html)
 
 Open index.html in a code editor.
 
-Find the firebaseConfig object and paste your own config values.
+Find the <script type="module"> section.
 
-Find the getDollyResponse function and replace YOUR_GEMINI_API_KEY_HERE with your Google AI Studio key.
+Firebase Config: Locate the firebaseConfig object and paste your copied config values there.
 
-Find the handlePaymentAndRegistration function and replace "rzp_test_RCthJa2Mqp2sit" in the options object with your own Razorpay Key.
+Gemini API Key: Find the getDollyResponse function. Replace the placeholder apiKey ("YOUR_GEMINI_API_KEY_HERE" or similar) with your actual Google AI Studio key.
 
-Run the Project
+const apiKey = "YOUR_GEMINI_API_KEY_HERE"; // <-- PASTE YOUR KEY HERE
 
-You can open index.html directly in your browser.
 
-For best results (to avoid any CORS issues with modules), run it with a local server. If you have VS Code, you can use the Live Server extension.
+Razorpay Key: Find the handlePaymentAndRegistration function. Locate the options object for new Razorpay(options) and replace the placeholder key with your Razorpay Test Key.
+
+const options = {
+    "key": "YOUR_RAZORPAY_TEST_KEY_HERE", // <-- PASTE YOUR KEY HERE
+    // ... other options
+};
+
+
+▶️ Run Locally
+
+Simple Method: Open the index.html file directly in your web browser.
+
+Recommended Method (using a local server):
+
+If you don't have a local server installed, you can use npx:
+
+npx live-server
+
+
+Or, if you have Node.js installed, you can install live-server globally:
+
+npm install -g live-server
+live-server
+
+
+This will typically open the site at http://127.0.0.1:8080 (or similar) and automatically reload when you save changes. Using a server avoids potential issues with ES6 modules loading directly from the file system.
+
+🔒 Environment Variables
+
+This project requires the following keys/credentials to be configured directly within the index.html file:
+
+// Inside <script type="module">
+
+// Firebase Configuration Object
+const firebaseConfig = {
+    apiKey: "YOUR_FIREBASE_API_KEY",
+    authDomain: "YOUR_FIREBASE_AUTH_DOMAIN",
+    projectId: "YOUR_FIREBASE_PROJECT_ID",
+    storageBucket: "YOUR_FIREBASE_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_FIREBASE_MESSAGING_SENDER_ID",
+    appId: "YOUR_FIREBASE_APP_ID"
+};
+
+// Google Gemini API Key (inside getDollyResponse function)
+const apiKey = "YOUR_GEMINI_API_KEY_HERE";
+
+// Razorpay Key ID (inside handlePaymentAndRegistration function options)
+const options = {
+    "key": "YOUR_RAZORPAY_TEST_KEY_HERE",
+    // ...
+};
+
+
+Note: For a production deployment, consider securing these keys further, potentially using Firebase Hosting's reserved URLs or server-side functions if scaling the project.
+
+🚀 Deployment
+
+This project is a static website and can be deployed easily to various platforms:
+
+Vercel: Connect your GitHub repository for automatic deployments on push. No special configuration is needed.
+
+Netlify: Similar to Vercel, connect your GitHub repository.
+
+Firebase Hosting: Use the Firebase CLI to deploy the index.html file and any assets.
+
+# Install Firebase CLI (if you haven't already)
+npm install -g firebase-tools
+# Login to Firebase
+firebase login
+# Initialize Firebase Hosting in your project folder
+firebase init hosting
+# Deploy
+firebase deploy --only hosting
+
+
+GitHub Pages: Enable GitHub Pages in your repository settings.
+
+Remember to update the Firebase, Gemini, and Razorpay keys in your deployed index.html file, potentially using Live keys for Razorpay in production.
+
+🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+
+Fork the Project
+
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+
+Push to the Branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
 
 📄 License
 
-Distributed under the MIT License.
+Distributed under the MIT License. See LICENSE file for more information (you may need to add a LICENSE file to your repo).
+
+💎 Acknowledgements
+
+Firebase
+
+Tailwind CSS
+
+Razorpay
+
+Google AI
+
+jsQR
+
+jsPDF
+
+html2canvas
+
+qrious
+
+Shields.io for Badges (shields.io)
+
+Skill Icons (skillicons.dev)
