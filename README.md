@@ -120,10 +120,12 @@ To get this booking website running locally.
 
 1.  **Clone the Repo**
 
-    ```bash
-    git clone https://github.com/suyogsontakke/ignite-2025-website.git
-    cd ignite-2025-website
-    ```
+ ```bash
+  git clone https://github.com/suyogsontakke/ignite-2025-website.git
+  ```
+```bash
+cd ignite-2025-website
+```
 
 2.  **Configure Firestore Rules**
     * Go to your **Firebase Console** -> **Firestore Database** -> **Rules**.
