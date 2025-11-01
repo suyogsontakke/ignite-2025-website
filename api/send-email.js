@@ -13,6 +13,7 @@ export default async function handler(req, res) {
   }
 
   // Destructure the name, email, and ticketId from the request body
+  // This matches what your new frontend script is sending.
   const { name, email, ticketId } = req.body;
 
   // Check if all required data is present
@@ -29,44 +30,57 @@ export default async function handler(req, res) {
     },
   });
 
-  // Define the neon colors
-  const neonPink = '#ff00c1';
-  const neonCyan = '#00f6ff';
-  const bgDarkJungle = '#0a0f1f';
-  const textBright = '#ffffff';
+  // --- NEW THEME COLORS ---
+  // Pulled directly from your website's CSS
+  const neonGreen = '#16FF00';
+  const bgDark = '#0B120E';
+  const bgLight = '#111A15';
+  const textBright = '#f8fafc';
+  const textSecondary = '#a0aec0';
 
-  // Set up the email's content using HTML with theme integration
+  // Set up the email's content using HTML with the new theme
   const mailOptions = {
-    from: `"IGNITE 2025: Urban Jungle Rave" <${process.env.EMAIL_USER}>`,
+    from: `"IGNITE 2025" <${process.env.EMAIL_USER}>`,
     to: email, // The recipient's email from the form
-    subject: `✅ Your IGNITE 2025 Expedition Pass is Confirmed!`,
+    subject: `✅ Your IGNITE 2025 Ticket is Confirmed! (Date: 14th Oct)`,
     html: `
-      <div style="font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: ${textBright}; background-color: ${bgDarkJungle}; padding: 20px; border-radius: 10px; text-align: center;">
-        <h2 style="color: ${neonPink}; text-shadow: 0 0 8px ${neonPink}, 0 0 12px ${neonCyan}; font-size: 28px; margin-bottom: 15px;">
-          Hey ${name}, your spot in the Urban Jungle is CONFIRMED!
+      <div style="font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: ${textBright}; background-color: ${bgDark}; padding: 25px; border-radius: 10px; max-width: 600px; margin: auto; border: 1px solid ${bgLight};">
+        
+        <h2 style="color: ${neonGreen}; text-shadow: 0 0 8px ${neonGreen}, 0 0 12px ${neonGreen}; font-size: 28px; margin-bottom: 15px; text-align: center;">
+          Hey ${name}, you're all set!
         </h2>
-        <p style="font-size: 16px; margin-bottom: 20px;">
-          Welcome to the tribe! Your expedition pass for <b>IGNITE 2025</b> is secured. Get ready to unleash your wild side at Nagpur's most epic freshers' rave!
+        
+        <p style="font-size: 16px; margin-bottom: 25px; text-align: center;">
+          Your spot for <b>IGNITE 2025</b> is officially confirmed. Get ready to ignite the vibe at Nagpur's ultimate freshers' party!
         </p>
-        <div style="background-color: rgba(255, 255, 255, 0.05); padding: 15px; border-left: 4px solid ${neonCyan}; margin: 25px auto; max-width: 400px; border-radius: 8px;">
-          <p style="margin: 0; font-size: 14px; color: ${textBright};">Your unique Expedition Pass ID:</p>
-          <p style="font-size: 24px; color: ${neonCyan}; text-shadow: 0 0 5px ${neonCyan}; font-weight: bold; margin-top: 5px;">${ticketId}</p>
+
+        <div style="background-color: ${bgLight}; padding: 20px; border-left: 4px solid ${neonGreen}; margin: 30px auto; max-width: 400px; border-radius: 8px; text-align: center;">
+          <p style="margin: 0; font-size: 14px; color: ${textSecondary}; text-transform: uppercase; letter-spacing: 0.5px;">Your unique Ticket ID:</p>
+          <p style="font-size: 26px; color: ${neonGreen}; text-shadow: 0 0 5px ${neonGreen}; font-weight: bold; margin-top: 8px; letter-spacing: 1px;">
+            ${ticketId}
+          </p>
         </div>
-        <p style="font-size: 14px; color: ${textBright}; margin-bottom: 20px;">
+
+        <div style="background-color: ${bgLight}; padding: 20px; border-radius: 8px; margin-top: 25px; text-align: left;">
+          <h3 style="color: ${neonGreen}; font-size: 20px; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid ${textSecondary}; padding-bottom: 10px;">
+            Event Details
+          </h3>
+          <ul style="list-style: none; padding-left: 0; margin: 0; color: ${textBright}; font-size: 16px; line-height: 1.8;">
+            <li style="margin-bottom: 10px;"><strong>📅 Date:</strong> 14th October</li>
+            <li style="margin-bottom: 10px;"><strong>⏰ Time:</strong> 11am To 6pm</li>
+            <li style="margin-bottom: 10px;"><strong>📍 Venue:</strong> RAASTA🌴, Nagpur</li>
+          </ul>
+        </div>
+        
+        <p style="font-size: 14px; color: ${textSecondary}; text-align: center; margin-top: 30px;">
           Please keep this email safe. You can also download your full ticket and receipt from the confirmation screen on our website.
         </p>
-        <p style="font-size: 16px; margin-bottom: 25px;">
-          Prepare for an unforgettable night of electrifying beats, vibrant lights, and tropical rhythms!
+
+        <p style="font-size: 14px; color: ${textBright}; margin-top: 40px; text-align: center;">
+          See you there,
         </p>
-        <p style="font-size: 18px; color: ${neonPink}; text-shadow: 0 0 5px ${neonPink}; font-weight: bold; margin-bottom: 20px;">
-          Date: Coming Soon! Stay tuned for the full reveal!
-        </p>
-        <br>
-        <p style="font-size: 14px; color: ${textBright}; margin-top: 30px;">
-          With wild enthusiasm,
-        </p>
-        <p style="font-size: 16px; font-weight: bold; color: ${neonPink}; text-shadow: 0 0 3px ${neonPink};">
-          The IGNITE 2025 Tribe 🔥
+        <p style="font-size: 18px; font-weight: bold; color: ${neonGreen}; text-shadow: 0 0 3px ${neonGreen}; text-align: center; margin-top: 5px;">
+          The IGNITE 2025 Team 🔥
         </p>
       </div>
     `,
@@ -78,10 +92,10 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true, message: 'Email sent successfully!' });
   } catch (error) {
     console.error('Nodemailer Error:', error);
-    return res.status(500).json({ 
-      success: false, 
+    return res.status(500).json({
+      success: false,
       message: 'There was an error sending the email.',
-      error: error.message 
+      error: error.message
     });
   }
 }
