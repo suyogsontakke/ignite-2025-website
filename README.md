@@ -188,7 +188,7 @@ Deploy this static website using any modern hosting provider.
 firebase deploy --only hosting
 ```
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
 
@@ -202,11 +202,11 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 5. Open a Pull Request
 
-📄 License
+## 📄 License
 
 Distributed under the MIT License. See ```LICENSE``` file for more information (you may need to add a LICENSE file to your repo).
 
-💎 Acknowledgements
+## 💎 Acknowledgements
 
 ● Firebase
 
